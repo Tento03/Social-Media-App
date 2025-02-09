@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.socialmediaapp.ui.FragmentHome"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_fragmentFriendsProfile"
+            app:destination="@id/nav_friends_profile" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_add"
+            app:destination="@id/nav_add" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_friends"
+        android:name="com.example.socialmediaapp.ui.FragmentFriend"
+        android:label="Friends"
+        tools:layout="@layout/fragment_friends" >
+        <action
+            android:id="@+id/action_nav_friends_to_nav_friends_profile"
+            app:destination="@id/nav_friends_profile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_search"
+        android:name="com.example.socialmediaapp.ui.FragmentSearch"
+        android:label="Find Friend"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_nav_search_to_nav_friends_profile"
+            app:destination="@id/nav_friends_profile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_chat"
+        android:name="com.example.socialmediaapp.ui.FragmentChat"
+        android:label="Messages"
+        tools:layout="@layout/fragment_chat" >
+        <argument
+            android:name="user"
+            app:argType="com.example.socialmediaapp.model.User" />
+        <action
+            android:id="@+id/action_nav_chat_to_nav_user"
+            app:destination="@id/nav_user" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_post"
+        android:name="com.example.socialmediaapp.ui.FragmentPost"
+        android:label="Post"
+        tools:layout="@layout/fragment_posts" >
+        <action
+            android:id="@+id/action_nav_post_to_nav_profile"
+            app:destination="@id/nav_profile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.example.socialmediaapp.ui.FragmentProfile"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_nav_profile_to_nav_account"
+            app:destination="@id/nav_account" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_account"
+        android:name="com.example.socialmediaapp.ui.FragmentAccount"
+        android:label="Settings"
+        tools:layout="@layout/fragment_account" >
+        <action
+            android:id="@+id/action_nav_account_to_nav_profile"
+            app:destination="@id/nav_profile" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_logout"
+        android:name="com.example.socialmediaapp.ui.FragmentLogout"
+        android:label="Logout"
+        tools:layout="@layout/fragment_logout" />
+    <fragment
+        android:id="@+id/nav_add"
+        android:name="com.example.socialmediaapp.ui.FragmentAdd"
+        android:label="Add Post"
+        tools:layout="@layout/fragment_add" >
+        <action
+            android:id="@+id/action_nav_add_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_user"
+        android:name="com.example.socialmediaapp.ui.FragmentUser"
+        android:label="FragmentUser" >
+        <action
+            android:id="@+id/action_nav_user_to_nav_chat"
+            app:destination="@id/nav_chat" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_friends_profile"
+        android:name="com.example.socialmediaapp.ui.FragmentFriendsProfile"
+        android:label="FragmentFriendsProfile" >
+        <argument
+            android:name="post"
+            app:argType="com.example.socialmediaapp.model.Post"
+            app:nullable="true" />
+        <argument
+            android:name="friend"
+            app:argType="com.example.socialmediaapp.model.Friend" />
+    </fragment>
+</navigation>
